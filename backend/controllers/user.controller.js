@@ -3,6 +3,10 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import getDataUri from "../utils/datauri.js";
 import cloudinary from "../utils/cloudinary.js";
+// api/user/[...path].js
+import app from '../index.js'; // adjust the path to your Express app
+
+
 
 export const register = async (req, res) => {
     try {
@@ -169,4 +173,7 @@ export const updateProfile = async (req, res) => {
     } catch (error) {
         console.log(error);
     }
+}
+export default function handler(req, res) {
+  app(req, res);
 }
