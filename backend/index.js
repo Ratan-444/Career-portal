@@ -20,18 +20,16 @@ app.use(cookieParser());
 
 
 // Allow CORS for your frontend
-app.use(
-  cors({
-    origin: "https://career-portal-site.onrender.com",
-    methods: ["GET","POST","PUT","DELETE","OPTIONS"],
-    credentials: true
-  })
-);
+// CORS Middleware
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "https://career-portal-site.onrender.com");
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  res.setHeader("Access-Control-Allow-Credentials", "true");
+  if (req.method === "OPTIONS") return res.sendStatus(200);
+  next();
+});
 
-
-
-// Allow preflight
-app.options("*", cors());
 
 // Connect DB
 connectDB();
