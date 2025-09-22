@@ -22,6 +22,10 @@ app.use((req, res, next) => {
   next();
 });
 // Middleware
+app.options('*', (req, res) => {
+  res.sendStatus(200);
+});
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
