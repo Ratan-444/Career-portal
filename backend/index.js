@@ -18,7 +18,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "https://job-portal-zd0i.onrender.com");
+  res.header("Access-Control-Allow-Origin", "https://career-portal-site.onrender.com");
   res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT,DELETE");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
   res.header("Access-Control-Allow-Credentials", "true");
